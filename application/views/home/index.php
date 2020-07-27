@@ -35,5 +35,25 @@
       <?php endforeach; ?>
     </div>
 
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card card-gray">
+          <div class="card-header">
+            <h5 class="card-title"><i class="fa fa-bar-chart"></i> Grafik Kegiatan</h5>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart">
+              <canvas id="barChart" style="height:230px"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
