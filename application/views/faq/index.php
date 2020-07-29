@@ -56,7 +56,7 @@
       </div>
     </nav>
   </header>
-  <div class="content-wrapper">
+  <div class="content-wrapper pt-0">
     <div class="container">
       <section class="features-overview">
         <div class="content-header">

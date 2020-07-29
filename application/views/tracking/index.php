@@ -12,6 +12,42 @@
   <link rel="stylesheet" href="<?= base_url('assets/theme/landing/vendors/mdi/css/materialdesignicons.min.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('assets/theme/landing/vendors/aos/css/aos.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('assets/theme/landing/css/style.min.css'); ?>">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    ul.timeline {
+      list-style-type: none;
+      position: relative;
+    }
+
+    ul.timeline:before {
+      content: ' ';
+      background: #d4d9df;
+      display: inline-block;
+      position: absolute;
+      left: 29px;
+      width: 2px;
+      height: 100%;
+      z-index: 400;
+    }
+
+    ul.timeline>li {
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    ul.timeline>li:before {
+      content: ' ';
+      background: white;
+      display: inline-block;
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid #22c0e8;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      z-index: 400;
+    }
+  </style>
 </head>
 
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
@@ -37,16 +73,16 @@
               </button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#header-section">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<?= base_url(); ?>#header-section">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#bmn">BMN</a>
+              <a class="nav-link" href="<?= base_url(); ?>#bmn">BMN</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#lelang">Lelang</a>
+              <a class="nav-link" href="<?= base_url(); ?>#lelang">Lelang</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#piutang">Piutang</a>
+              <a class="nav-link" href="<?= base_url(); ?>#piutang">Piutang</a>
             </li>
             <li class="nav-item btn-contact-us pl-4 pl-lg-0">
             </li>
@@ -55,134 +91,50 @@
       </div>
     </nav>
   </header>
-  <div class="banner">
+  <div class="content-wrapper pt-0">
     <div class="container">
-      <h1 class="font-weight-semibold">Daftar Pertanyaan & Telusuri<br>Permohonan Anda</h1>
-      <h6 class="font-weight-normal text-muted pb-3">Untuk mengetahui proses permohonan Pengelolaan BMN, Lelang dan Pengurusan Piutang Negara Anda.</h6>
-      <div>
-        <a href="<?= base_url('faq'); ?>" class="btn btn-opacity-light mr-1">Daftar Pertanyaan</a>
-        <a href="<?= base_url('tracking'); ?>" class="btn btn-opacity-light ml-1">Telusuri Permohonan Anda Sekarang!</a>
-      </div>
-      <img src="<?= base_url('assets/theme/landing/images/Group171.svg'); ?>" alt="" class="img-fluid">
-    </div>
-  </div>
-  <div class="content-wrapper">
-    <div class="container">
-      <section class="features-overview" id="bmn">
+      <section class="features-overview">
         <div class="content-header">
-          <h2>Pengelolaan BMN</h2>
-          <h6 class="section-subtitle text-muted">One theme that serves as an easy-to-use operational toolkit<br>that meets customer's needs.</h6>
-        </div>
-        <div class="d-md-flex justify-content-between">
-          <div class="grid-margin d-flex justify-content-start">
-            <div class="features-width">
-              <img src="<?= base_url('assets/theme/landing/images/Group12.svg'); ?>" alt="" class="img-icons">
-              <h5 class="py-3">Speed<br>Optimisation</h5>
-              <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-              <a href="#">
-                <p class="readmore-link">Readmore</p>
-              </a>
-            </div>
-          </div>
-          <div class="grid-margin d-flex justify-content-center">
-            <div class="features-width">
-              <img src="<?= base_url('assets/theme/landing/images/Group7.svg'); ?>" alt="" class="img-icons">
-              <h5 class="py-3">SEO and<br>Backlinks</h5>
-              <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-              <a href="#">
-                <p class="readmore-link">Readmore</p>
-              </a>
-            </div>
-          </div>
-          <div class="grid-margin d-flex justify-content-end">
-            <div class="features-width">
-              <img src="<?= base_url('assets/theme/landing/images/Group5.svg'); ?>" alt="" class="img-icons">
-              <h5 class="py-3">Content<br>Marketing</h5>
-              <p class="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-              <a href="#">
-                <p class="readmore-link">Readmore</p>
-              </a>
+          <h2>Telusuri Permohonan Saya (Tracking System)</h2>
+          <h6 class="section-subtitle text-muted">Informasi seputar proses permohonan yang sedang berjalan di KPKNL Jakarta 1</h6>
+          <div class="input-group mt-3 col-md-6 offset-md-3">
+            <input type="text" class="form-control" placeholder="diisi nomor register permohonan Anda" aria-label="isi nomor register surat permohonan Anda" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
             </div>
           </div>
         </div>
-      </section>
-      <section class="digital-marketing-service" id="lelang">
-        <div class="row align-items-center">
-          <div class="col-12 col-lg-7 grid-margin grid-margin-lg-0" data-aos="fade-right">
-            <h3 class="m-0">Pelayanan Lelang<br>pada KPKNL Jakarta 1</h3>
-            <div class="col-lg-7 col-xl-6 p-0">
-              <p class="py-4 m-0 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
-              <p class="font-weight-medium text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer</p>
+        <div class="content-body">
+          <div class="row">
+            <div class="col-md-8 offset-md-2">
+              <h5>Proses Terbaru..</h5>
+              <ul class="timeline">
+                <li>
+                  <span>PERSETUJUAN LELANG</span>
+                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 15:31 WIB</p>
+                  <p class="mb-0 text-muted">Seksi Pelayanan Lelang (Fulan)</p>
+                  <p class="text-muted">Berkas disetujui untuk diproses lebih lanjut</p>
+                </li>
+                <li>
+                  <span>DISPOSISI KEPALA SEKSI</span>
+                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 11:20 WIB</p>
+                  <p class="mb-0 text-muted">Seksi Pelayanan Lelang (Yenny)</p>
+                  <p class="text-muted"></p>
+                </li>
+                <li>
+                  <span>PEMERIKSAAN BERKAS FISIK</span>
+                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 10:00 WIB</p>
+                  <p class="mb-0 text-muted">Seksi Pelayanan Lelang (Andi)</p>
+                  <p class="text-muted">Berkas telah selesai diperiksa dan dinyatakan lengkap serta memenuhi syarat.</p>
+                </li>
+                <li>
+                  <span>PENERIMAAN SURAT</span>
+                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 08:14 WIB</p>
+                  <p class="mb-0 text-muted">Subbagian Umum (Rizky)</p>
+                  <p class="text-muted">Permohonan Kementerian Dalam Negeri No. 12414/KNH.11/2020 Tgl. 15 Januari 2020 Tentang kebutuhan rumah dinas pada saat pandemi Covid-19.</p>
+                </li>
+              </ul>
             </div>
-          </div>
-          <div class="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0" data-aos="fade-left">
-            <img src="<?= base_url('assets/theme/landing/images/Group1.png'); ?>" alt="" class="img-fluid">
-          </div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-12 col-lg-7 text-center flex-item grid-margin" data-aos="fade-right">
-            <img src="<?= base_url('assets/theme/landing/images/Group2.png'); ?>" alt="" class="img-fluid">
-          </div>
-          <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
-            <h3 class="m-0">Leading Digital Agency<br>for Business Solution.</h3>
-            <div class="col-lg-9 col-xl-8 p-0">
-              <p class="py-4 m-0 text-muted">Power-packed with impressive features and well-optimized, this template is designed to provide the best performance in all circumstances.</p>
-              <p class="pb-2 font-weight-medium text-muted">Its smart features make it a powerful stand-alone website building tool.</p>
-            </div>
-            <button class="btn btn-info">Readmore</button>
-          </div>
-        </div>
-      </section>
-      <section class="features-overview" id="piutang">
-        <div class="content-header">
-          <h2>Pengurusan Piutang Negara</h2>
-          <h6 class="section-subtitle text-muted">Berisi daftar layanan pengurusan piutang negara di KPKNL Jakarta 1.</h6>
-        </div>
-        <div class="row text-center text-md-left">
-          <div class="col-12 col-md-6 col-lg-4 grid-margin">
-            <h5 class="pb-2">Pengelolaan BMN</h5>
-            <a href="#">
-              <p class="m-0 pb-2">Layanan Penetapan Status Penggunaan BMN Berupa Tanah dan/atau Bangunan</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1 pb-2">Privacy policy</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1 pb-2">Cookie Policy</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1">Discover</p>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 grid-margin">
-            <h5 class="pb-2">Lelang</h5>
-            <a href="#">
-              <p class="m-0 pb-2">Layanan Penetapan Jadwal Lelang</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1 pb-2">Privacy policy</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1 pb-2">Cookie Policy</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1">Discover</p>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 grid-margin">
-            <h5 class="pb-2">Pengurusan Piutang Negara</h5>
-            <a href="#">
-              <p class="m-0 pb-2">Layanan Permohonan Keringanan Hutang</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1 pb-2">Privacy policy</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1 pb-2">Cookie Policy</p>
-            </a>
-            <a href="#">
-              <p class="m-0 pt-1">Discover</p>
-            </a>
           </div>
         </div>
       </section>
@@ -196,6 +148,9 @@
   <script src="<?= base_url('assets/theme/landing/vendors/owl-carousel/js/owl.carousel.min.js'); ?>"></script>
   <script src="<?= base_url('assets/theme/landing/vendors/aos/js/aos.js'); ?>"></script>
   <script src="<?= base_url('assets/theme/landing/js/landingpage.js'); ?>"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
 </html>
