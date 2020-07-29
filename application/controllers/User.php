@@ -8,8 +8,6 @@ class User extends CI_Controller
     parent::__construct();
     is_logged_in();
     $this->load->model('judul_model', 'judul');
-    // $this->load->model('user_model', 'user');
-    // $this->load->model('role_model', 'role');
   }
 
   public function index()
@@ -34,10 +32,10 @@ class User extends CI_Controller
     // load user
     if ($this->input->post('keyword')) {
       $keyword = htmlspecialchars($this->input->post('keyword', true));
-      $this->db->select('nik,nama');
+      $this->db->select('nip,nama');
       $this->db->from('ref_user');
       $this->db->like('nama', $keyword);
-      $this->db->or_like('nik', $keyword);
+      $this->db->or_like('nip', $keyword);
       $query = $this->db->get();
       $data['user'] = $query->result_array();
     }
@@ -52,11 +50,11 @@ class User extends CI_Controller
 
   public function adduser()
   {
-    $nik = $this->input->post('nik');
+    $nip = $this->input->post('nip');
     $nama = $this->input->post('nama');
 
     $data = [
-      'nik' => $nik,
+      'nip' => $nip,
       'nama' => $nama
     ];
 

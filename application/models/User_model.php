@@ -13,9 +13,9 @@ class User_model extends CI_Model
         'rules' => 'required|trim'
       ],
       [
-        'field' => 'nik',
-        'label' => 'NIK',
-        'rules' => 'required|trim|exact_length[16]'
+        'field' => 'nip',
+        'label' => 'NIP',
+        'rules' => 'required|trim|exact_length[18]'
       ],
       [
         'field' => 'nama',
@@ -76,7 +76,7 @@ class User_model extends CI_Model
   {
     return [
       'id_role' => htmlspecialchars($this->input->post('id_role', true)),
-      'nik' => htmlspecialchars($this->input->post('nik', true)),
+      'nip' => htmlspecialchars($this->input->post('nip', true)),
       'nama' => htmlspecialchars($this->input->post('nama', true)),
       'email' => htmlspecialchars($this->input->post('email', true)),
       'is_active' => htmlspecialchars($this->input->post('is_active', true))
@@ -93,9 +93,9 @@ class User_model extends CI_Model
     return $this->db->get_where($this->_table, ['id' => $id])->row_array();
   }
 
-  public function getNik($nik)
+  public function getnip($nip)
   {
-    return $this->db->get_where($this->_table, ['nik' => $nik])->row_array();
+    return $this->db->get_where($this->_table, ['nip' => $nip])->row_array();
   }
 
   public function add()
@@ -113,20 +113,20 @@ class User_model extends CI_Model
     $this->db->update($this->_table, $this->data(), ['id' => $id]);
   }
 
-  public function editNik($nik)
+  public function editnip($nip)
   {
     $data = [
       'nama' => htmlspecialchars($this->input->post('nama', true)),
       'email' => htmlspecialchars($this->input->post('email', true))
     ];
-    $this->db->update($this->_table, $data, ['nik' => $nik]);
+    $this->db->update($this->_table, $data, ['nip' => $nip]);
   }
 
-  public function editPass($nik, $new_password)
+  public function editPass($nip, $new_password)
   {
     $data = [
       'password' => password_hash($new_password, PASSWORD_DEFAULT)
     ];
-    $this->db->update($this->_table, $data, ['nik' => $nik]);
+    $this->db->update($this->_table, $data, ['nip' => $nip]);
   }
 }

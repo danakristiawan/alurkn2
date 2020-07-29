@@ -12,14 +12,14 @@ class Auth extends CI_Controller
 
   public function index()
   {
-    if ($this->session->userdata('nik')) {
+    if ($this->session->userdata('nip')) {
       redirect('home');
     }
 
-    $this->form_validation->set_rules('nik', 'NIK', 'required|trim|exact_length[16]');
+    $this->form_validation->set_rules('nip', 'NIP', 'required|trim|exact_length[18]');
     $this->form_validation->set_rules('password', 'Password', 'required|trim');
     if ($this->form_validation->run() == false) {
-      $data['judul'] = 'Login';
+      $data['judul'] = 'Login Admin';
       $data['subjudul'] = 'Login';
       $this->load->view('template/auth_header', $data);
       $this->load->view('auth/login', $data);
@@ -31,10 +31,10 @@ class Auth extends CI_Controller
 
   private function _login()
   {
-    $nik = htmlspecialchars($this->input->post('nik'));
+    $nip = htmlspecialchars($this->input->post('nip'));
     $password = htmlspecialchars($this->input->post('password'));
 
-    $user = $this->user->getNik($nik);
+    $user = $this->user->getnip($nip);
     // jika usernya ada
     if ($user) {
       // jika usernya aktif
@@ -42,7 +42,7 @@ class Auth extends CI_Controller
         // cek password
         if (password_verify($password, $user['password'])) {
           $data = [
-            'nik' => $user['nik'],
+            'nip' => $user['nip'],
             'tahun' => date('Y')
           ];
           $this->session->set_userdata($data);
@@ -67,7 +67,7 @@ class Auth extends CI_Controller
 
     $data['judul'] = 'Registrasi';
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-    $this->form_validation->set_rules('nik', 'NIK', 'required|trim|exact_length[16]|is_unique[ref_user.nik]', [
+    $this->form_validation->set_rules('nip', 'nip', 'required|trim|exact_length[16]|is_unique[ref_user.nip]', [
       'is_unique' => 'NIP yang Anda gunakan sudah terdaftar!'
     ]);
     $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[ref_user.email]', [
@@ -86,7 +86,7 @@ class Auth extends CI_Controller
     } else {
       $email = htmlspecialchars($this->input->post('email', true));
       $data = [
-        'nik' => htmlspecialchars($this->input->post('nik', true)),
+        'nip' => htmlspecialchars($this->input->post('nip', true)),
         'nama' => htmlspecialchars($this->input->post('nama', true)),
         'email' => $email,
         'gambar' => 'default.jpeg',
@@ -145,7 +145,7 @@ class Auth extends CI_Controller
 
   public function logout()
   {
-    $this->session->unset_userdata('nik');
+    $this->session->unset_userdata('nip');
     $this->session->sess_destroy();
 
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah berhasil logout!</div>');

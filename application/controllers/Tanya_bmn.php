@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Bank extends CI_Controller
+class Tanya_bmn extends CI_Controller
 {
   public function __construct()
   {
@@ -14,12 +14,12 @@ class Bank extends CI_Controller
   {
     // data
     $data['title'] = $this->judul->title();
-    $data['bank'] = $this->db->get('ref_bank')->result_array();
+    $data['tanya'] = $this->db->get_where('data_pertanyaan', ['jenis_id' => 1])->result_array();
     // form
     $this->load->view('template/header');
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/topbar', $data);
-    $this->load->view('bank/index', $data);
+    $this->load->view('tanya_bmn/index', $data);
     $this->load->view('template/footer');
   }
 
@@ -30,8 +30,13 @@ class Bank extends CI_Controller
     // validasi
     $rules = [
       [
-        'field' => 'nama',
-        'label' => 'Nama',
+        'field' => 'tanya',
+        'label' => 'Pertanyaan',
+        'rules' => 'required|trim'
+      ],
+      [
+        'field' => 'jawab',
+        'label' => 'Jawaban',
         'rules' => 'required|trim'
       ]
     ];
@@ -39,17 +44,19 @@ class Bank extends CI_Controller
     if ($validation->run()) {
       //query
       $data = [
-        'nama' => htmlspecialchars($this->input->post('nama', true)),
+        'jenis_id' => 1,
+        'tanya' => htmlspecialchars($this->input->post('tanya', true)),
+        'jawab' => htmlspecialchars($this->input->post('jawab', true)),
         'date_created' => time()
       ];
-      $this->db->insert('ref_bank', $data);
-      redirect('bank');
+      $this->db->insert('data_pertanyaan', $data);
+      redirect('tanya-bmn');
     }
     // form
     $this->load->view('template/header');
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/topbar', $data);
-    $this->load->view('bank/add', $data);
+    $this->load->view('tanya_bmn/add', $data);
     $this->load->view('template/footer');
   }
 
@@ -59,12 +66,17 @@ class Bank extends CI_Controller
     if (!isset($id)) redirect('auth/blocked');
     // data
     $data['title'] = $this->judul->title();
-    $data['bank'] = $this->db->get_where('ref_bank', ['id' => $id])->row_array();
+    $data['tanya'] = $this->db->get_where('data_pertanyaan', ['id' => $id])->row_array();
     // validasi
     $rules = [
       [
-        'field' => 'nama',
-        'label' => 'Nama',
+        'field' => 'tanya',
+        'label' => 'Pertanyaan',
+        'rules' => 'required|trim'
+      ],
+      [
+        'field' => 'jawab',
+        'label' => 'Jawaban',
         'rules' => 'required|trim'
       ]
     ];
@@ -72,17 +84,19 @@ class Bank extends CI_Controller
     if ($validation->run()) {
       //query
       $data = [
-        'nama' => htmlspecialchars($this->input->post('nama', true)),
+        'jenis_id' => 1,
+        'tanya' => htmlspecialchars($this->input->post('tanya', true)),
+        'jawab' => htmlspecialchars($this->input->post('jawab', true)),
         'date_created' => time()
       ];
-      $this->db->update('ref_bank', $data, ['id' => $id]);
-      redirect('bank');
+      $this->db->update('data_pertanyaan', $data, ['id' => $id]);
+      redirect('tanya-bmn');
     }
     // form
     $this->load->view('template/header');
     $this->load->view('template/sidebar', $data);
     $this->load->view('template/topbar', $data);
-    $this->load->view('bank/edit', $data);
+    $this->load->view('tanya_bmn/edit', $data);
     $this->load->view('template/footer');
   }
 
@@ -91,8 +105,8 @@ class Bank extends CI_Controller
     // cek id
     if (!isset($id)) redirect('auth/blocked');
     // query
-    if ($this->db->delete('ref_bank', ['id' => $id])) {
-      redirect('bank');
+    if ($this->db->delete('data_pertanyaan', ['id' => $id])) {
+      redirect('tanya-bmn');
     }
   }
 }

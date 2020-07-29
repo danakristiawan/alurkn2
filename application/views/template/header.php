@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Aplikasi Sibrave</title>
-  <link rel="shortcut icon" href="<?= base_url(); ?>assets/img/sibrave.png" type="image/x-icon">
+  <title>Admin Alur KN</title>
+  <link rel="shortcut icon" href="<?= base_url('assets/theme/landing/images/alurkn.png'); ?>" type="image/x-icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->

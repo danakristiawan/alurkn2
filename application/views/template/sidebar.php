@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-light-info elevation-4">
+<aside class="main-sidebar sidebar-dark-secondary elevation-4">
   <!-- Brand Logo -->
   <a href="<?= base_url('home'); ?>" class="brand-link">
-    <img src="<?= base_url(); ?>assets/img/sibrave.png" alt="Sibrave Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Sibrave</span>
+    <img src="<?= base_url('assets/theme/landing/images/alurkn.png'); ?>" alt="Alurkn Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">Admin Alur KN</span>
   </a>
 
   <!-- Sidebar -->
@@ -14,8 +14,8 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <?php
-        $nik = $this->session->userdata('nik');
-        $row = $this->db->query("SELECT nama FROM system_user WHERE nik='$nik'")->row_array();
+        $nip = $this->session->userdata('nip');
+        $row = $this->db->query("SELECT nama FROM system_user WHERE nip='$nip'")->row_array();
         $nama = $row['nama'];
         ?>
 
@@ -24,8 +24,8 @@
 
         <!-- cetak menu -->
         <?php
-        $nik = $this->session->userdata('nik');
-        $query = $this->db->query("SELECT role_id FROM system_user WHERE nik='$nik'")->row_array();
+        $nip = $this->session->userdata('nip');
+        $query = $this->db->query("SELECT role_id FROM system_user WHERE nip='$nip'")->row_array();
         if ($query) {
           $role_id = $query['role_id'];
           $queryMenu = "SELECT a.menu_id, b.name

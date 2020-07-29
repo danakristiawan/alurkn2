@@ -9,10 +9,10 @@
           </div>
           <div class="card-body">
             <div class="form-group">
-              <label for="">NIK :</label>
-              <input type="text" name="nik" class="form-control <?= form_error('nik') ? 'is-invalid' : '' ?>" value="<?= $user['nik']; ?>" readonly>
+              <label for="">NIP :</label>
+              <input type="text" name="nip" class="form-control <?= form_error('nip') ? 'is-invalid' : '' ?>" value="<?= $user['nip']; ?>" readonly>
               <div class="invalid-feedback">
-                <?= form_error('nik') ?>
+                <?= form_error('nip') ?>
               </div>
             </div>
             <div class="form-group">

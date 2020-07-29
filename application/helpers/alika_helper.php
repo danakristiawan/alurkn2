@@ -5,11 +5,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 function is_logged_in()
 {
   $ci = get_instance();
-  if (!$ci->session->userdata('nik')) {
+  if (!$ci->session->userdata('nip')) {
     redirect('auth');
   } else {
-    $nik = $ci->session->userdata('nik');
-    $result = $ci->db->query("SELECT role_id FROM system_user WHERE nik='$nik'")->row_array();
+    $nip = $ci->session->userdata('nip');
+    $result = $ci->db->query("SELECT role_id FROM system_user WHERE nip='$nip'")->row_array();
     $role_id = $result['role_id'];
     $submenu = $ci->uri->segment(1);
     $subsubmenu = $ci->uri->segment(1) . '/' . $ci->uri->segment(2);
@@ -41,24 +41,12 @@ function is_logged_in2()
   }
 }
 
-function check_nik($nik)
+function check_nip($nip)
 {
   $ci = get_instance();
 
-  $ci->db->where('nik', $nik);
+  $ci->db->where('nip', $nip);
   $result = $ci->db->get('system_user');
-
-  if ($result->num_rows() > 0) {
-    return "checked='checked'";
-  }
-}
-
-function check_petugas($kegiatan_id, $sk_id, $nik)
-{
-  $ci = get_instance();
-
-  $ci->db->where(['kegiatan_id' => $kegiatan_id, 'sk_id' => $sk_id, 'nik' => $nik]);
-  $result = $ci->db->get('data_petugas');
 
   if ($result->num_rows() > 0) {
     return "checked='checked'";

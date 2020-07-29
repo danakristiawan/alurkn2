@@ -48,13 +48,13 @@
   });
 
   $('.form-check-input').on('click', function() {
-    const nik = $(this).data('nik');
+    const nip = $(this).data('nip');
     const nama = $(this).data('nama');
     $.ajax({
       url: "<?= base_url('user/adduser'); ?>",
       type: 'post',
       data: {
-        nik: nik,
+        nip: nip,
         nama: nama
       },
       success: function() {
@@ -66,7 +66,7 @@
   $('.form-check-petugas').on('click', function() {
     let kegiatan_id = $(this).data('kegiatan_id');
     let sk_id = $(this).data('sk_id');
-    let nik = $(this).data('nik');
+    let nip = $(this).data('nip');
     let nama = $(this).data('nama');
     let jabatan = $(this).data('jabatan');
     let gol = $(this).data('gol');
@@ -77,7 +77,7 @@
       data: {
         kegiatan_id: kegiatan_id,
         sk_id: sk_id,
-        nik: nik,
+        nip: nip,
         nama: nama,
         jabatan: jabatan,
         gol: gol,

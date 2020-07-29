@@ -12,4 +12,13 @@ class Welcome extends CI_Controller
   {
     $this->load->view('welcome/index');
   }
+
+  public function faq()
+  {
+    $this->load->view('welcome/faq');
+  }
+  public function tracking()
+  {
+    $this->load->view('welcome/tracking');
+  }
 }

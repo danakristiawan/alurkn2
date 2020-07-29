@@ -60,8 +60,8 @@
       <h1 class="font-weight-semibold">Daftar Pertanyaan & Telusuri<br>Permohonan Anda</h1>
       <h6 class="font-weight-normal text-muted pb-3">Untuk mengetahui proses permohonan Pengelolaan BMN, Lelang dan Pengurusan Piutang Negara Anda.</h6>
       <div>
-        <a href="#daftar" class="btn btn-opacity-light mr-1">Daftar Pertanyaan</a>
-        <a href="#exampleModal" class="btn btn-opacity-light ml-1">Telusuri Permohonan Anda Sekarang!</a>
+        <a href="<?= base_url('faq'); ?>" class="btn btn-opacity-light mr-1">Daftar Pertanyaan</a>
+        <a href="<?= base_url('tracking'); ?>" class="btn btn-opacity-light ml-1">Telusuri Permohonan Anda Sekarang!</a>
       </div>
       <img src="<?= base_url('assets/theme/landing/images/Group171.svg'); ?>" alt="" class="img-fluid">
     </div>
@@ -187,7 +187,7 @@
         </div>
       </section>
       <footer class="border-top">
-        <p class="text-center text-muted pt-4">Copyright © 2020<a href="#" class="px-1">Yenny.</a>All rights reserved.</p>
+        <p class="text-center text-muted pt-4">Copyright © 2020<a href="<?= base_url('auth'); ?>" class="px-1">Yenny.</a>All rights reserved.</p>
       </footer>
     </div>
   </div>

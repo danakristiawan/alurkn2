@@ -10,9 +10,9 @@
 
       <form action="<?= base_url('auth'); ?>" method="post" autocomplete="off">
         <div class="form-group has-feedback">
-          <label>NIK :</label>
-          <input type="text" name="nik" class="form-control <?= form_error('nik') ? 'is-invalid' : ''; ?>" placeholder="NIK" value="<?= set_value('nik'); ?>">
-          <?= form_error('nik', '<small class="text-danger pl-0">', '</small>'); ?>
+          <label>NIP :</label>
+          <input type="text" name="nip" class="form-control <?= form_error('nip') ? 'is-invalid' : ''; ?>" placeholder="NIP" value="<?= set_value('nip'); ?>">
+          <?= form_error('nip', '<small class="text-danger pl-0">', '</small>'); ?>
         </div>
         <div class="form-group has-feedback">
           <label>Password :</label>
@@ -31,12 +31,12 @@
         </div>
       </form>
 
-      <p class="mb-1">
+      <!-- <p class="mb-1">
         <a href="<?= base_url('auth/forgot'); ?>">Lupa password</a>
       </p>
       <p class="mb-0">
         <a href="<?= base_url('auth/registration'); ?>" class="text-center">Registrasi</a>
-      </p>
+      </p> -->
     </div>
     <!-- /.login-card-body -->
   </div>
