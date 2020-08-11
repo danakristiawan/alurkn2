@@ -169,6 +169,40 @@
                     </div>
                   </div>
                 </div>
+                <div class="card">
+                  <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed" style="font-size:20px;" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Penilaian Kekayaan Negara
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>No</th>
+                              <th>Pertanyaan</th>
+                              <th>Jawaban</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php $no = 1;
+                            foreach ($tanya4 as $t) : ?>
+                              <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $t['tanya']; ?></td>
+                                <td><?= $t['jawab']; ?></td>
+                              </tr>
+                            <?php endforeach; ?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Lockscreen</title>
+  <title>Admin Alur KN</title>
+  <link rel="shortcut icon" href="<?= base_url('assets/theme/landing/images/alurkn.png'); ?>" type="image/x-icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,6 +32,8 @@
               Kami tidak bisa menemukan halaman yang Anda cari.
               User Anda belum terdaftar di modul ini. Hubungi administrator untuk mendapatkan bantuan.
             </p>
+            <p>
+              <a class="btn btn-primary" href="<?= base_url('auth/logout'); ?>" onclick="return confirm('Apakah Anda yakin akan keluar dari aplikasi ini?')"><i class="fa fa-power-off"></i> &nbsp;Logout</a></p>
           </div>
         </div>
       </div>

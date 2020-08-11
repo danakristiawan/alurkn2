@@ -13,6 +13,7 @@ class Faq extends CI_Controller
     $data['tanya1'] = $this->db->get_where('data_pertanyaan', ['jenis_id' => 1])->result_array();
     $data['tanya2'] = $this->db->get_where('data_pertanyaan', ['jenis_id' => 2])->result_array();
     $data['tanya3'] = $this->db->get_where('data_pertanyaan', ['jenis_id' => 3])->result_array();
+    $data['tanya4'] = $this->db->get_where('data_pertanyaan', ['jenis_id' => 4])->result_array();
     $this->load->view('faq/index', $data);
   }
 }

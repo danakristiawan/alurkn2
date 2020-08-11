@@ -97,44 +97,39 @@
         <div class="content-header">
           <h2>Telusuri Permohonan Saya (Tracking System)</h2>
           <h6 class="section-subtitle text-muted">Informasi seputar proses permohonan yang sedang berjalan di KPKNL Jakarta 1</h6>
-          <div class="input-group mt-3 col-md-6 offset-md-3">
-            <input type="text" class="form-control" placeholder="diisi nomor register permohonan Anda" aria-label="isi nomor register surat permohonan Anda" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
-            </div>
+          <div class="input-group mt-3 col-md-4 offset-md-4">
+            <form action="" method="post" autocomplete="off">
+              <div class="input-group">
+                <input type="text" name="keyword" class="form-control" placeholder="nomor register.." aria-label="Cari nama pegawai.." aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa fa-search"></i> Cari</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <div class="content-body">
           <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <h5>Proses Terbaru..</h5>
-              <ul class="timeline">
-                <li>
-                  <span>PERSETUJUAN LELANG</span>
-                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 15:31 WIB</p>
-                  <p class="mb-0 text-muted">Seksi Pelayanan Lelang (Fulan)</p>
-                  <p class="text-muted">Berkas disetujui untuk diproses lebih lanjut</p>
-                </li>
-                <li>
-                  <span>DISPOSISI KEPALA SEKSI</span>
-                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 11:20 WIB</p>
-                  <p class="mb-0 text-muted">Seksi Pelayanan Lelang (Yenny)</p>
-                  <p class="text-muted"></p>
-                </li>
-                <li>
-                  <span>PEMERIKSAAN BERKAS FISIK</span>
-                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 10:00 WIB</p>
-                  <p class="mb-0 text-muted">Seksi Pelayanan Lelang (Andi)</p>
-                  <p class="text-muted">Berkas telah selesai diperiksa dan dinyatakan lengkap serta memenuhi syarat.</p>
-                </li>
-                <li>
-                  <span>PENERIMAAN SURAT</span>
-                  <p class="mb-0 text-muted">Rabu, 21 Februari 2020 pukul 08:14 WIB</p>
-                  <p class="mb-0 text-muted">Subbagian Umum (Rizky)</p>
-                  <p class="text-muted">Permohonan Kementerian Dalam Negeri No. 12414/KNH.11/2020 Tgl. 15 Januari 2020 Tentang kebutuhan rumah dinas pada saat pandemi Covid-19.</p>
-                </li>
-              </ul>
-            </div>
+            <?php if ($permohonan) :  ?>
+              <div class="col-md-6 offset-md-3">
+                <h5>Proses Terbaru..</h5>
+                <ul class="timeline">
+                  <?php foreach ($permohonan as $r) :  ?>
+                    <li>
+                      <span><?= hari($r['date_created']); ?>, <?= tanggal($r['date_created']); ?></span>
+                      <span class="float-right"><?= jam($r['date_created']); ?> WIB</span>
+                      <p class="mb-0"><?= $r['nama']; ?></p>
+                      <p class="mb-0 text-muted"><?= $r['nama_peg']; ?> (<?= $r['jabatan_peg']; ?>)</p>
+                      <p class="text-muted"><?= $r['catatan']; ?></p>
+                    </li>
+                  <?php endforeach; ?>
+                </ul>
+              </div>
+            <?php else :  ?>
+              <div class="col mb-5 text-center text-muted">
+                belum ada data ................
+              </div>
+            <?php endif;  ?>
           </div>
         </div>
       </section>
