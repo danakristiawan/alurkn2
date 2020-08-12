@@ -54,8 +54,10 @@ class Proses_permohonan extends CI_Controller
       $this->db->update('data_proses', $data, ['id' => $id]);
       // id record kedua
       $query = $this->db->query("SELECT id FROM data_proses WHERE permohonan_id='$permohonan_id' AND status='0' LIMIT 1")->row_array();
-      $id_kedua = $query['id'];
-      $this->db->update('data_proses', $data2, ['id' => $id_kedua]);
+      if ($query) {
+        $id_kedua = $query['id'];
+        $this->db->update('data_proses', $data2, ['id' => $id_kedua]);
+      }
       redirect('proses-permohonan');
     }
     // form

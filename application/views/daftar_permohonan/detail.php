@@ -25,8 +25,8 @@
                     <tr>
                       <td><?= $no; ?></td>
                       <td><?= $r['nama']; ?></td>
-                      <td><?= hari($r['date_created']) . ', ' . tanggal($r['date_created']); ?></td>
-                      <td><?= $r['nama_peg'] . ' (' . $r['jabatan_peg'] . ' )'; ?></td>
+                      <td><?= $r['date_created'] == null ? '' :  hari($r['date_created']) . ', ' . tanggal($r['date_created']); ?></td>
+                      <td><?= $r['date_created'] == null ? '' : $r['nama_peg'] . ' (' . $r['jabatan_peg'] . ' )'; ?></td>
                       <td><?= $r['catatan']; ?></td>
                       <td><?= $r['status'] == 1 ? '<span class="badge badge-success">sudah diproses</span>' : '<span class="badge badge-danger">belum diproses</span>'; ?></td>
                     </tr>
