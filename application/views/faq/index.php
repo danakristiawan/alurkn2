@@ -60,7 +60,7 @@
     <div class="container">
       <section class="features-overview">
         <div class="content-header">
-          <h2>Frequently Ask Question (FAQ)</h2>
+          <h2>Frequently Asked Question (FAQ)</h2>
           <h6 class="section-subtitle text-muted">Daftar Pertanyaan Seputar Pengelolaan Barang Milik Negara, Pelayanan Lelang dan Pengurusan Piutang Negara</h6>
         </div>
         <div class="content-body">
